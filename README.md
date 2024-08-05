@@ -43,7 +43,10 @@ In the chart immediately to the right, users can visualize the total accomplishe
 It is important to mention that the Target Contribution and Target Deadline inputs are provided within the Python script in the ‘DEFINING INVESTMENT INPUT GOALS’ section.
 
 ## Importing Data from a Google Sheets Spreadsheet into the Dashboard
-It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path) or using a Google Sheets through the Google Cloud Platform API. This second alternative follows a pretty simple step by step process, wich is covered bellow:
+It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path). The CSV file is included in the repository as Personal Budget Control - Table View.csv.
+And the second alternative is using a Google Sheets through the Google Cloud Platform API. You can access the Google Sheets template using the following link: https://docs.google.com/spreadsheets/d/12wnR-ZyOC_Pssr-Uj4GLOJNxQyToD9azkv8rjKhx8yc/edit?usp=sharing
+
+The second alternative (Google Sheets) follows a pretty simple step by step process, wich is covered bellow:
 
 To import data from a Google Sheets spreadsheet into a Dash-created dashboard, follow these steps:
 
