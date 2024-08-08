@@ -2,48 +2,37 @@
 This is a personal dashboard project developed in Python using Plotly Dash library! Suggestions are welcome!
 
 ## This Dashboard provides insights about Personal Expenses Behaviour (upper part of the dashboard) and also gives some information about Investment Performance (lower section of the dashboard)!
-This is a personal dashboard project developed in Python using Plotly Dash library! Suggestions are welcome!
 
 ## Overall at Dashboard Features:
 
 ### Expenses Behaviour section:
 
-The user could choose, in the two dropdowns displayed above, the review period and the macrocategory the user would like to assess. The dropdowns change the data displayed on the two charts bellow. For each macrocategory, there are expense categories, so it is possible to understand, in genereal, how your expenses are distributed along each macrocategory. 
-
-There is also a button that shows User´s Manual, where the user can write down any kind of reminders regarding on the usability of the applicarion as a whole, for instance.
-
-Also, I added a table that shows information on Income and Outflow for current month period. I divided the Outflow into Credit and Debit expense. I also divided the Outflow into ‘Personal’ and ‘Others’, which I´ll explain along this file in the ‘Feeding the data into the dashboard’ section! At the same table, the user can also check what is the total current credit outflow (Credit Outflow - Total Current) and also future invoices (Credit Outflow - Accrued), so it eventually makes things easier when understanding types of payments along current month. At last, ‘Investment’ tells the user how much money was sent to investment account. 
-
-At the table immediately bellow, the user can asses Apparent Balance (money currently available on bank account) and Real Balance (Apparent Balance subtracted of the current month Invoice). 
-
-The third table displayed, shows ‘pending financial issues’ as a reminder to the user that are some pendencies to be resolved such as verifyig an entry, waiting for a ‘Pending Income’ ou ‘Pending Outflow’ or even just to keep track of future installment invoices (Accrued Invoice)
-
 The user can select the review period and the macrocategory they wish to assess using the two dropdowns displayed above. These dropdowns dynamically update the data shown on the two charts below. For each macrocategory, there are specific expense categories, allowing users to understand how their expenses are distributed across each macrocategory.
 
-A button is available to show the User’s Manual, where users can write down any kind of reminders regarding the usability of the application as a whole.
+There is also a button that shows User´s Manual, where the user can write down any kind of reminders regarding on the usability of the application as a whole, for instance.
 
-Additionally, a table shows information on Income and Outflow for the current month. The Outflow is divided into Credit and Debit expenses. It is also divided into ‘Personal’ and ‘Others’, which will be explained further in the ‘Feeding the data into the dashboard’ section. In the same table, users can check the total current credit outflow (Credit Outflow - Total Current) and future invoices (Credit Outflow - Accrued), making it easier to understand payment types for the current month. Lastly, the ‘Investment’ row indicates how much money was sent to the investment account.
+Additionally, a table shows information on Income and Outflow for the current month. The Outflow is divided into Credit and Debit expenses. It is also divided into ‘Personal’ and ‘Others’, which will be explained further in the ‘Feeding the data into the dashboard’ section. In the same table, users can check the total current credit outflow (Credit Outflow - Total Current) and future invoices (Credit Outflow - Accrued), making it easier to understand payment types for the reviewing month. Lastly, the ‘Investment’ row indicates how much money was sent to the investment account.
 
-In the table immediately below, users can assess the Apparent Balance (money currently available in the bank account) and the Real Balance (Apparent Balance minus the current month’s Invoice).
+At the table immediately bellow, the user can assess Apparent Balance (money currently available on bank account) and Real Balance (Apparent Balance subtracted of the current month Invoice). 
 
 The third table displayed shows ‘pending financial issues’ as reminders of unresolved tasks such as verifying an entry, waiting for a ‘Pending Income’ or ‘Pending Outflow,’ or keeping track of future installment invoices (Accrued Invoice).
 
 ### Investment Performance section:
-On the left-hand side, six tables are displayed showing:
+On the left-hand side, the table displayed shows:
 
-- Investment Contribution Target ($ Target)
-- Investment Contribution Target Deadline (Target Deadline)
-- Total Accomplished so far of the Investment Contribution Target ($ Accomplished)
-- Pending Contribution ($ Pending)
-- Percentage Accomplished of the Investment Contribution Target (% Accomplished)
-- Months to Deadline (Months Deadline)
+- Investment Contribution Target ('Target')
+- Investment Contribution Target Deadline ('Deadline')
+- Total Accomplished so far of the Investment Contribution Target ('Contribution')
+- Pending Contribution ('Pending')
+- Percentage Accomplished of the Investment Contribution Target ('% Done')
+- Months to Deadline ('Months left')
 
 In the chart immediately to the right, users can visualize the total accomplished and pending contributions. Additionally, historic and cumulative contributions are shown.
 
-It is important to mention that the Target Contribution and Target Deadline inputs are provided within the Python script in the ‘DEFINING INVESTMENT INPUT GOALS’ section.
+It is important to mention that the Target Contribution, Target Deadline and Text for the User´s Manual inputs are provided within the Python script in the ‘DEFINING DASHBOARD INPUTS’ section.
 
 ## Importing Data from a Google Sheets Spreadsheet into the Dashboard
-It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path). The CSV file is included in the repository as Personal Budget Control - Table View.csv.
+It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path). The CSV file is included in the repository as 'Personal Budget Control - Table View.csv'.
 And the second alternative is using a Google Sheets through the Google Cloud Platform API. You can access the Google Sheets template using the following link: https://docs.google.com/spreadsheets/d/12wnR-ZyOC_Pssr-Uj4GLOJNxQyToD9azkv8rjKhx8yc/edit?usp=sharing
 
 The second alternative (Google Sheets) follows a pretty simple step by step process, wich is covered bellow:
@@ -118,11 +107,11 @@ In the ‘Table View’ tab, users only need to provide inputs for the orange-co
 For the ‘Status’ column, users can leave it blank or choose from:
 
 - Pending Income (e.g., You pay for your friend’s dinner but expect to be paid back eventually)
-- Pending Outflow (e.g., You need to buy a Christmas gift even though it's February)
+- Pending Outflow (e.g., You need to buy a Christmas gift even though it's August)
 - Accrued Invoice (e.g., You buy a shirt in installments using your credit card) - Optional
 - Verify (e.g., You have an entry but don’t remember its origin, so you need to verify it eventually)
 
-For each of these options in the ‘Status’ column, you can manually assign ‘- Done’ once it’s resolved. For the ‘Pending Income’ option, once the person pays you back, you can create a new line on the corresponding date with the same features but mark it as ‘Pending Income - Done’ OR simply delete the entry as it does not impact your expenses behavior. If you have a shared expense but are still waiting for reimbursement, you can choose ‘Shared’ in the last column and add the corresponding value in a new line on the corresponding date once you have received the money.
+For each of these options in the ‘Status’ column, you can manually assign the corresponding option followed by ‘- Done’ once it’s resolved. For the ‘Pending Income’ option, once the person pays you back, you can create a new line on the corresponding date with the same features but mark it as ‘Pending Income - Done’ OR simply delete the entry as it does not impact your expenses behavior. If you have a shared expense but are still waiting for reimbursement, you can choose ‘Shared’ in the last column and add the corresponding value in a new line on the corresponding date once you have received the money.
 
 The apparent balance value needs to be provided manually in the final rows of the ‘Table View’ tab for every entry update. Be careful to keep the balance entry date updated!
 
