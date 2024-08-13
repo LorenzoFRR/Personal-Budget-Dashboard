@@ -11,7 +11,7 @@ The user can select the review period and the macrocategory they wish to assess 
 
 There is also a button that shows User´s Manual, where the user can write down any kind of reminders regarding on the usability of the application as a whole, for instance.
 
-Additionally, a table shows information on Income and Outflow for the current month. The Outflow is divided into Credit and Debit expenses. It is also divided into ‘Personal’ and ‘Others’, which will be explained further in the ‘Feeding the data into the dashboard’ section. In the same table, users can check the total current credit outflow (Credit Outflow - Total Current) and future invoices (Credit Outflow - Accrued), making it easier to understand payment types for the reviewing month. Lastly, the ‘Investment’ row indicates how much money was sent to the investment account.
+Additionally, a table at the right-hand side shows information on Income and Outflow for the current month. The Outflow is divided into Credit and Debit expenses. It is also divided into ‘Personal’ and ‘Others’, which will be explained further in the ‘Feeding the data into the dashboard’ section. In the same table, users can check the total current credit outflow (Credit Outflow - Total Current) and future invoices (Credit Outflow - Accrued), making it easier to understand payment types for the reviewing month. Lastly, the ‘Investment’ row indicates how much money was sent to the investment account.
 
 At the table immediately bellow, the user can assess Apparent Balance (money currently available on bank account) and Real Balance (Apparent Balance subtracted of the current month Invoice). 
 
@@ -31,13 +31,13 @@ In the chart immediately to the right, users can visualize the total accomplishe
 
 It is important to mention that the Target Contribution, Target Deadline and Text for the User´s Manual inputs are provided within the Python script in the ‘DEFINING DASHBOARD INPUTS’ section.
 
-## Importing Data from a Google Sheets Spreadsheet into the Dashboard
+## Importing Data into the Dashboard
 It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path). The CSV file is included in the repository as 'Personal Budget Control - Table View.csv'.
 And the second alternative is using a Google Sheets through the Google Cloud Platform API. You can access the Google Sheets template using the following link: https://docs.google.com/spreadsheets/d/12wnR-ZyOC_Pssr-Uj4GLOJNxQyToD9azkv8rjKhx8yc/edit?usp=sharing
 
-The second alternative (Google Sheets) follows a pretty simple step by step process, wich is covered bellow:
+The second alternative (Google Sheets) follows a pretty simple step by step process, which is covered bellow:
 
-To import data from a Google Sheets spreadsheet into a Dash-created dashboard, follow these steps:
+To import data from a Google Sheets spreadsheet into the Plotly Dash dashboard, follow these steps:
 
 1. **Create a project on Google Cloud Platform (GCP) and enable the Google Sheets and Google Drive APIs**:
     - Go to the [Google Cloud Console](https://console.cloud.google.com/).
@@ -97,7 +97,7 @@ Replace `"PATH_TO_YOUR_JSON_FILE"` with the path to your JSON credentials file a
 
 With these steps, you will be ready to import data from a Google Sheets spreadsheet into your Dash dashboard. Ensure all steps are followed correctly to guarantee the data import works smoothly.
 
-By loading the data from one of the two alternatives mentioned, the user would need to have the same template used in the reference app.py. So I´ll also leave the Google Sheets and CSV templates in the end of this file.
+By loading the data from one of the two alternatives mentioned, the user would need to have the same template used in the reference app.py. So I´ll also leave the CSV template in the end of this file.
 
 ## Feeding the data into the dashboard:
 The data feeding mechanism is straightforward. All options for data validation are displayed in the ‘Aux’ tab of the Google Sheets, so users need to change their personal options there.
@@ -109,11 +109,15 @@ For the ‘Status’ column, users can leave it blank or choose from:
 - Pending Income (e.g., You pay for your friend’s dinner but expect to be paid back eventually)
 - Pending Outflow (e.g., You need to buy a Christmas gift even though it's August)
 - Accrued Invoice (e.g., You buy a shirt in installments using your credit card) - Optional
-- Verify (e.g., You have an entry but don’t remember its origin, so you need to verify it eventually)
+- Verify (e.g., You have an entry but don’t remember its origin, so you need to verify it)
 
-For each of these options in the ‘Status’ column, you can manually assign the corresponding option followed by ‘- Done’ once it’s resolved. For the ‘Pending Income’ option, once the person pays you back, you can create a new line on the corresponding date with the same features but mark it as ‘Pending Income - Done’ OR simply delete the entry as it does not impact your expenses behavior. If you have a shared expense but are still waiting for reimbursement, you can choose ‘Shared’ in the last column and add the corresponding value in a new line on the corresponding date once you have received the money.
+For each of these options in the ‘Status’ column, you can manually assign the corresponding option followed by ‘- Done’ once it’s resolved. For the ‘Pending Income’ option, once the person pays you back, for instance, you can create a new line on the corresponding date with the same features but mark it as ‘Pending Income - Done’ OR simply delete the entry as it does not impact your personal expenses behavior. 
 
-The apparent balance value needs to be provided manually in the final rows of the ‘Table View’ tab for every entry update. Be careful to keep the balance entry date updated!
+To be able to view expenses classified as 'Others' in the 'Cashflow Overview Selected Month' table, it is necessary to fill in the corresponding entry in the column of the same name: 'Others'
+
+If you have a shared expense but are still waiting for reimbursement, you still can selected 'Others' in the last column and add the corresponding value in a new line on the corresponding date once you have received the money.
+
+The apparent balance value needs to be provided manually in the final rows of the ‘Table View’ tab for every entry update. Be sure to keep the balance entry date updated!
 
 In the investment performance section of the dashboard, you can see the investment contribution target and target deadline inputs. These inputs are provided directly inside the Python code in the [app.py](http://app.py/) file, in the ‘DEFINING INVESTMENT GOALS’ section of the code.
 
