@@ -35,9 +35,7 @@ It is important to mention that the Target Contribution, Target Deadline and Tex
 It could be done through two different alternatives. The first is simply loading the data as a csv file using pd.read_csv(path). The CSV file is included in the repository as 'Personal Budget Control - Table View.csv'.
 And the second alternative is using a Google Sheets through the Google Cloud Platform API. You can access the Google Sheets template using the following link: https://docs.google.com/spreadsheets/d/12wnR-ZyOC_Pssr-Uj4GLOJNxQyToD9azkv8rjKhx8yc/edit?usp=sharing
 
-Please, be aware to apply the following steps at your own Google Sheets file if you want to test the application in your machine.
-
-The second alternative (Google Sheets) follows a pretty simple step by step process, which is covered bellow:
+The second alternative (Google Sheets) follows a pretty simple step by step process, which is covered bellow. Please, be aware to apply the following steps at your own Google Sheets file if you want to test the application in your machine.
 
 To import data from a Google Sheets spreadsheet into the Plotly Dash dashboard, follow these steps:
 
