@@ -13,7 +13,7 @@ app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, "https://use.fo
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
 # Account Service Credentials
-credentials = ServiceAccountCredentials.from_json_keyfile_name(PATH_TO_JSON_FILE, scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name("PATH_TO_YOUR_JSON_FILE", scope)
 
 # Google Sheets Authentication and Opening
 gc = gspread.authorize(credentials)
